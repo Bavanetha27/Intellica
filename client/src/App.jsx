@@ -1,165 +1,94 @@
-import React, { useState, useRef } from "react";
-import Header from "./components/Header";
-import LeftPane from "./components/LeftPane";
-import RightPane from "./components/RightPane";
-import axios from "axios";
-import { toast } from "react-toastify";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Components
+import LandingPage from "./components/LandingPage";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Dashboard from "./components/Dashboard";
+
+// Services
+import { authService } from "./services/authService";
+
+// Protected Route Component
+const ProtectedRoute = ({ children }) => {
+  // Check if we're in demo mode (you can set this in your .env file)
+  const isDemoMode = import.meta.env.VITE_DEMO_MODE === 'true';
+  
+  if (isDemoMode) {
+    return children; // Bypass auth in demo mode
+  }
+  
+  return authService.isAuthenticated() ? children : <Navigate to="/login" replace />;
+};
+
+// Public Route Component (redirect to dashboard if already logged in)
+const PublicRoute = ({ children }) => {
+  return authService.isAuthenticated() ? <Navigate to="/dashboard" replace /> : children;
+};
+
 const App = () => {
-  // States
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [textQuery, setTextQuery] = useState("");
-  const [imageQuery, setImageQuery] = useState(null);
-  const [audioQuery, setAudioQuery] = useState(null);
-  const [recording, setRecording] = useState(false);
-  const mediaRecorderRef = useRef(null);
-  const [answer, setAnswer] = useState("");
-  const [sources, setSources] = useState([]);
-  const [expandedSources, setExpandedSources] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  // ---------------- Knowledge Base Upload ----------------
-  const handleUpload = async (file) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    setLoading(true);
-    try {
-      await axios.post("http://localhost:8000/upload", formData);
-      toast.success(`${file.name} uploaded successfully!`);
-    } catch (err) {
-      console.error(err);
-      toast.error(`Upload failed for ${file.name}`);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleFileSelect = async (file) => {
-    setSelectedFile(file);
-    await handleUpload(file);
-  };
-
-  // ---------------- Query Handlers ----------------
-
-  const handleAudioQuery = async (file) => {
-    setLoading(true);
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post("http://localhost:8000/transcribe", formData);
-      const queryText = res.data.text;
-      setTextQuery(queryText);
-
-      const answerRes = await axios.post("http://localhost:8000/query", { query: queryText });
-      setAnswer(answerRes.data.answer);
-      setSources(answerRes.data.sources || []);
-    } catch (err) {
-      console.error(err);
-      toast.error("Error processing audio query");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleImageQuery = async (file) => {
-    setLoading(true);
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await axios.post("http://localhost:8000/ocr", formData);
-      const queryText = res.data.text;
-      setTextQuery(queryText);
-
-      const answerRes = await axios.post("http://localhost:8000/query", { query: queryText });
-      setAnswer(answerRes.data.answer);
-      setSources(answerRes.data.sources || []);
-    } catch (err) {
-      console.error(err);
-      toast.error("Error processing image query");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // ---------------- Audio Recording ----------------
-  const startRecording = async () => {
-    if (!navigator.mediaDevices) return toast.error("Audio recording not supported.");
-    setAudioQuery(null);
-
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    const mediaRecorder = new MediaRecorder(stream);
-    mediaRecorderRef.current = mediaRecorder;
-    let chunks = [];
-
-    mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
-    mediaRecorder.onstop = async () => {
-      const blob = new Blob(chunks, { type: "audio/webm" });
-      setAudioQuery(blob);
-      await handleAudioQuery(blob);
-    };
-
-    mediaRecorder.start();
-    setRecording(true);
-  };
-
-  const stopRecording = () => {
-    mediaRecorderRef.current.stop();
-    setRecording(false);
-  };
-
-  // ---------------- Text Query ----------------
-  const handleQuerySubmit = async () => {
-    if (!textQuery.trim()) return toast.error("Enter a query");
-    setLoading(true);
-    try {
-      const res = await axios.post("http://localhost:8000/query", { query: textQuery });
-      setAnswer(res.data.answer);
-      setSources(res.data.sources || []);
-    } catch (err) {
-      console.error(err);
-      toast.error("Error fetching answer");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const toggleSource = (idx) => {
-    setExpandedSources((prev) => ({ ...prev, [idx]: !prev[idx] }));
-  };
-
   return (
-    <div className="flex flex-col h-screen">
-      <Header />
-      <div className="flex flex-col md:flex-row flex-1 gap-6 p-6 bg-gray-100">
-        <LeftPane
-          uploadedFiles={uploadedFiles}
-          setUploadedFiles={setUploadedFiles}
-          handleFileSelect={handleFileSelect}
-          selectedFile={selectedFile}
-        />
-        <RightPane
-          textQuery={textQuery}
-          setTextQuery={setTextQuery}
-          imageQuery={imageQuery}
-          setImageQuery={setImageQuery}
-          audioQuery={audioQuery}
-          setAudioQuery={setAudioQuery}
-          recording={recording}
-          startRecording={startRecording}
-          stopRecording={stopRecording}
-          handleImageQuery={handleImageQuery}
-          handleAudioQuery={handleAudioQuery}
-          handleQuerySubmit={handleQuerySubmit}
-          answer={answer}
-          sources={sources}
-          expandedSources={expandedSources}
-          toggleSource={toggleSource}
-          loading={loading}
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* Public Routes */}
+          <Route 
+            path="/" 
+            element={
+              <PublicRoute>
+                <LandingPage />
+              </PublicRoute>
+            } 
+          />
+          <Route 
+            path="/login" 
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            } 
+          />
+          <Route 
+            path="/signup" 
+            element={
+              <PublicRoute>
+                <Signup />
+              </PublicRoute>
+            } 
+          />
+          
+          {/* Protected Routes */}
+          <Route 
+            path="/dashboard" 
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            } 
+          />
+          
+          {/* Catch all route */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+        
+        {/* Toast notifications */}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
         />
       </div>
-    </div>
+    </Router>
   );
 };
 

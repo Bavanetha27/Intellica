@@ -25,16 +25,21 @@ ocr_reader = easyocr.Reader(['en'], gpu=torch.cuda.is_available())
 whisper_model = whisper.load_model("tiny") 
 
 
+origins = [
+    "http://localhost:5173",  # React dev server
+    "http://127.0.0.1:5173",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,  # only allow your frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # ---------------- Config ----------------
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR = BASE_DIR / "data/uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 

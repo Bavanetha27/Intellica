@@ -1,6 +1,6 @@
 [
   {
-    "id": "f2938e9d-d7fc-48cc-96a0-858f69b1d5d2",
+    "id": "f1369a65-3902-41c5-a4cc-e874baddc97d",
     "file_name": "Retrieval.docx",
     "source_type": "docx",
     "page": null,
@@ -8,11 +8,11 @@
     "char_end": 800,
     "start_time": null,
     "end_time": null,
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx",
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\Retrieval.docx",
     "text": "Retrieval-Augmented Generation (RAG) is an advanced approach in natural language processing that combines the strengths of information retrieval and text generation. Unlike traditional language models that rely solely on pre-trained knowledge, RAG enhances responses by dynamically retrieving relevant information from external sources such as documents, databases, or web pages. This allows the system to generate answers that are more accurate, contextually relevant, and up-to-date.\n\nThe RAG architecture typically consists of two main components: a retriever and a generator. The retriever searches a large corpus to find passages or chunks relevant to the user query, while the generator, often a large language model, uses this retrieved information to produce coherent and informative response"
   },
   {
-    "id": "060ee24c-8cdf-4bfd-93dc-4c3465f411df",
+    "id": "0285aa7c-907e-4544-b8f6-90b5b162cb9b",
     "file_name": "Retrieval.docx",
     "source_type": "docx",
     "page": null,
@@ -20,11 +20,11 @@
     "char_end": 1400,
     "start_time": null,
     "end_time": null,
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx",
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\Retrieval.docx",
     "text": "es a large corpus to find passages or chunks relevant to the user query, while the generator, often a large language model, uses this retrieved information to produce coherent and informative responses. By integrating retrieval with generation, RAG reduces hallucinations and improves factual correctness, making it effective for tasks requiring specialized or recent knowledge.\n\nOne of the main advantages of RAG is its ability to extend the model’s knowledge beyond what it learned during training. By accessing external data, RAG can provide up-to-date information and handle queries in specialized domains, such as healthcare, law, or enterprise knowledge management. Additionally, RAG can operate offline with locally stored documents, which enhances data privacy and reduces dependency on live"
   },
   {
-    "id": "8f3c59d4-617d-42f1-b4d1-d63beb36b80e",
+    "id": "dd790595-80fe-4223-ae6f-227bbdecac4d",
     "file_name": "Retrieval.docx",
     "source_type": "docx",
     "page": null,
@@ -32,11 +32,11 @@
     "char_end": 2000,
     "start_time": null,
     "end_time": null,
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx",
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\Retrieval.docx",
     "text": "d domains, such as healthcare, law, or enterprise knowledge management. Additionally, RAG can operate offline with locally stored documents, which enhances data privacy and reduces dependency on live internet access.\n\nRAG has a wide range of applications across industries. In customer support, it helps provide precise answers from product manuals or knowledge bases. In research, it assists in summarizing papers and retrieving relevant citations. Enterprises leverage RAG for intelligent document search, enabling staff to query large collections of reports, presentations, and PDFs. Its versatility also extends to multimodal systems, integrating text, images, and audio for comprehensive responses.\n\nDespite its strengths, RAG faces challenges, including ensuring the relevance of retrieved docu"
   },
   {
-    "id": "3ad85e4c-a483-4cbe-85da-abef62152c43",
+    "id": "50aee8d5-6da6-4045-82ec-939919a8adbf",
     "file_name": "Retrieval.docx",
     "source_type": "docx",
     "page": null,
@@ -44,43 +44,55 @@
     "char_end": 2380,
     "start_time": null,
     "end_time": null,
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx",
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\Retrieval.docx",
     "text": "ty also extends to multimodal systems, integrating text, images, and audio for comprehensive responses.\n\nDespite its strengths, RAG faces challenges, including ensuring the relevance of retrieved documents and managing computational efficiency, as the combined retrieval and generation process can be resource-intensive. Future developments focus on improving retrieval accuracy, optimizing performance, and integrating multimodal data more effectively. As these challenges are addressed, RAG is expected to become a cornerstone technology for knowledge-intensive AI applications."
   },
   {
-    "id": "89fa4539-fa7d-4a5b-b73e-46103f94910a",
-    "file_name": "Retrieval.docx",
-    "source_type": "docx",
+    "id": "0efa9a3f-4d4c-486d-a622-c2d97ae615e3",
+    "file_name": "sample.mp3",
+    "source_type": "audio",
+    "page": null,
+    "char_start": null,
+    "char_end": null,
+    "start_time": 0.0,
+    "end_time": 2.32,
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\sample.mp3",
+    "text": "I am here to present, let's secure."
+  },
+  {
+    "id": "26224f0f-2aca-4501-aa77-a0fed523d65b",
+    "file_name": "sample.mp3",
+    "source_type": "audio",
+    "page": null,
+    "char_start": null,
+    "char_end": null,
+    "start_time": 2.32,
+    "end_time": 7.4,
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\sample.mp3",
+    "text": "An AI power solution designed to simplify and demystify legal documents."
+  },
+  {
+    "id": "40b9484d-31cc-465a-9686-57eccd6e74a1",
+    "file_name": "sample.mp3",
+    "source_type": "audio",
+    "page": null,
+    "char_start": null,
+    "char_end": null,
+    "start_time": 7.4,
+    "end_time": 8.48,
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\sample.mp3",
+    "text": "Legal contract"
+  },
+  {
+    "id": "01c377bf-3198-4b94-a612-512f451988e6",
+    "file_name": "sample.png",
+    "source_type": "image",
+    "page": null,
     "char_start": 0,
-    "char_end": 800,
-    "text": "Retrieval-Augmented Generation (RAG) is an advanced approach in natural language processing that combines the strengths of information retrieval and text generation. Unlike traditional language models that rely solely on pre-trained knowledge, RAG enhances responses by dynamically retrieving relevant information from external sources such as documents, databases, or web pages. This allows the system to generate answers that are more accurate, contextually relevant, and up-to-date.\n\nThe RAG architecture typically consists of two main components: a retriever and a generator. The retriever searches a large corpus to find passages or chunks relevant to the user query, while the generator, often a large language model, uses this retrieved information to produce coherent and informative response",
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx"
-  },
-  {
-    "id": "971ff002-b7e4-4cfb-9496-42d98950efbd",
-    "file_name": "Retrieval.docx",
-    "source_type": "docx",
-    "char_start": 600,
-    "char_end": 1400,
-    "text": "es a large corpus to find passages or chunks relevant to the user query, while the generator, often a large language model, uses this retrieved information to produce coherent and informative responses. By integrating retrieval with generation, RAG reduces hallucinations and improves factual correctness, making it effective for tasks requiring specialized or recent knowledge.\n\nOne of the main advantages of RAG is its ability to extend the model’s knowledge beyond what it learned during training. By accessing external data, RAG can provide up-to-date information and handle queries in specialized domains, such as healthcare, law, or enterprise knowledge management. Additionally, RAG can operate offline with locally stored documents, which enhances data privacy and reduces dependency on live",
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx"
-  },
-  {
-    "id": "551e2a50-791d-4a04-8ef1-a3700d7b21ad",
-    "file_name": "Retrieval.docx",
-    "source_type": "docx",
-    "char_start": 1200,
-    "char_end": 2000,
-    "text": "d domains, such as healthcare, law, or enterprise knowledge management. Additionally, RAG can operate offline with locally stored documents, which enhances data privacy and reduces dependency on live internet access.\n\nRAG has a wide range of applications across industries. In customer support, it helps provide precise answers from product manuals or knowledge bases. In research, it assists in summarizing papers and retrieving relevant citations. Enterprises leverage RAG for intelligent document search, enabling staff to query large collections of reports, presentations, and PDFs. Its versatility also extends to multimodal systems, integrating text, images, and audio for comprehensive responses.\n\nDespite its strengths, RAG faces challenges, including ensuring the relevance of retrieved docu",
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx"
-  },
-  {
-    "id": "5032003b-5b3e-4d15-b418-d813b2b72b1f",
-    "file_name": "Retrieval.docx",
-    "source_type": "docx",
-    "char_start": 1800,
-    "char_end": 2380,
-    "text": "ty also extends to multimodal systems, integrating text, images, and audio for comprehensive responses.\n\nDespite its strengths, RAG faces challenges, including ensuring the relevance of retrieved documents and managing computational efficiency, as the combined retrieval and generation process can be resource-intensive. Future developments focus on improving retrieval accuracy, optimizing performance, and integrating multimodal data more effectively. As these challenges are addressed, RAG is expected to become a cornerstone technology for knowledge-intensive AI applications.",
-    "raw_path": "D:\\SIH2\\backend\\data\\uploads\\Retrieval.docx"
+    "char_end": 252,
+    "start_time": null,
+    "end_time": null,
+    "raw_path": "D:\\SIH2\\Intellica\\data\\uploads\\sample.png",
+    "text": "Chill\nRandom Forest\nGrow\nRandom Forest is an ensemble learning method used for\nboth classification and regression tasks.\nIt creates\nmultiple decision trees during training and combines their\npredictions to make more accurate and robust\npredictions.\nand"
   }
 ]

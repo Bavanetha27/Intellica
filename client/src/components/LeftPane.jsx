@@ -15,7 +15,9 @@ const LeftPane = ({ uploadedFiles, setUploadedFiles, handleFileSelect, selectedF
           multiple
           onChange={(e) => {
             const files = Array.from(e.target.files);
+            console.log(files);
             setUploadedFiles(prev => [...prev, ...files]);
+            files.forEach(file => handleFileSelect(file));
           }}
           className="hidden"
         />

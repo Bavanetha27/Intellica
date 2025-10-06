@@ -11,8 +11,8 @@ import numpy as np
 
 # ----------------- Config -----------------
 BASE_DIR = Path(__file__).resolve().parent.parent
-INGESTED_DIR = BASE_DIR / "data" / "ingested"
-VECTOR_DIR = BASE_DIR / "data" / "vectors"
+INGESTED_DIR = BASE_DIR / "data/ingested"
+VECTOR_DIR = BASE_DIR / "data/vectors"
 VECTOR_DIR.mkdir(parents=True, exist_ok=True)
 
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"  # English only
